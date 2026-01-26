@@ -1,10 +1,25 @@
 package de.jamieaugustin.taskmanager.model;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
+import javax.validation.constraints.NotBlank;
+
+@Entity
 public class Task {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+    @NotBlank
     private String name;
     private String note;
     private boolean isFinished;
+
+    public Task() {
+
+    }
 
     public Task(long id, String name, String note, boolean isFinished) {
         this.id = id;
@@ -37,11 +52,11 @@ public class Task {
         this.note = note;
     }
 
-    public boolean isFinished() {
+    public boolean getIsFinished() {
         return isFinished;
     }
 
-    public void setFinished(boolean finished) {
+    public void setIsFinished(boolean finished) {
         isFinished = finished;
     }
 }
