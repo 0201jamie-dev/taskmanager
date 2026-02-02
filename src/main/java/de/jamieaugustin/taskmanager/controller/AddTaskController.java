@@ -1,6 +1,6 @@
 package de.jamieaugustin.taskmanager.controller;
 
-import de.jamieaugustin.taskmanager.services.TaskService;
+import de.jamieaugustin.taskmanager.services.TaskServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,10 +15,10 @@ import javax.validation.Valid;
 @Controller
 public class AddTaskController {
     @Autowired
-    TaskService taskService;
+    TaskServiceImpl taskServiceImpl;
 
     @GetMapping("/addTask")
-    public String loadAddTaskPage(Model model) {
+    public String displayAddTaskPage(Model model) {
         model.addAttribute("task", new Task());
         return ("addtask");
     }
@@ -26,9 +26,9 @@ public class AddTaskController {
     @PostMapping("/addTask")
     public String addTask(@Valid @ModelAttribute("task") Task task, BindingResult result) {
         if (result.hasErrors()) {
-            return "redirect:/addPerson";
+            return "redirect:/addTask";
         }
-        taskService.createTask(task);
+        taskServiceImpl.createTask(task);
         return ("redirect:/");
     }
 }
