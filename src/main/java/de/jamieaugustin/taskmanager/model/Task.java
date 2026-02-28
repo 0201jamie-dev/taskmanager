@@ -7,11 +7,13 @@ import jakarta.persistence.Id;
 
 import javax.validation.constraints.NotBlank;
 
+// TODO: Delete getters and setters and use Lombok instead
 @Entity
 public class Task {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+
     @NotBlank
     private String name;
     private String note;
@@ -21,8 +23,7 @@ public class Task {
 
     }
 
-    public Task(long id, String name, String note, boolean isFinished) {
-        this.id = id;
+    public Task(String name, String note, boolean isFinished) {
         this.name = name;
         this.note = note;
         this.isFinished = isFinished;

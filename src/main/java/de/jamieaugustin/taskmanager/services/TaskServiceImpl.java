@@ -2,15 +2,18 @@ package de.jamieaugustin.taskmanager.services;
 
 import de.jamieaugustin.taskmanager.model.Task;
 import de.jamieaugustin.taskmanager.repositories.TaskRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
 public class TaskServiceImpl implements TaskService {
-    @Autowired
-    TaskRepository taskRepository;
+    private final TaskRepository taskRepository;
+
+    public TaskServiceImpl(TaskRepository taskRepository) {
+        this.taskRepository = taskRepository;
+    }
 
     @Override
     public void createTask(Task task) {
@@ -21,5 +24,15 @@ public class TaskServiceImpl implements TaskService {
     public Task getTaskById(long id) {
         Optional<Task> task = taskRepository.findById(id);
         return task.orElse(null);
+    }
+
+    @Override
+    public List<Task> getTasks() {
+        return taskRepository.findAll();
+    }
+
+    @Override
+    public void deleteTaskById(long id) {
+        taskRepository.deleteById(id);
     }
 }
