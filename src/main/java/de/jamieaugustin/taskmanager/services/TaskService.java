@@ -5,8 +5,12 @@ import de.jamieaugustin.taskmanager.model.Task;
 import java.util.List;
 
 public interface TaskService {
-    void createTask(Task task);
-    Task getTaskById(long id);
-    List<Task> getTasks();
-    void deleteTaskById(long id);
+
+  void createTask(Task task);
+
+  Task getTaskById(long id);
+
+  List<Task> getTasks();
+
+  void deleteTaskById(long id);
 }

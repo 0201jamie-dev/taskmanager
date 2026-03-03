@@ -9,32 +9,30 @@ import java.util.List;
 @RestController
 @RequestMapping("/api")
 public class TaskController {
-    private final TaskService taskService;
 
-    public TaskController(TaskService taskService) {
-        this.taskService = taskService;
-    }
+  private final TaskService taskService;
 
-    @PostMapping("/task")
-    public void createTask(@RequestBody Task task) {
-        taskService.createTask(task);
-    }
+  public TaskController(TaskService taskService) {
+    this.taskService = taskService;
+  }
 
-    @GetMapping("/task/{id}")
-    public Task getTaskById(@PathVariable long id) {
-        return taskService.getTaskById(id);
-    }
+  @PostMapping("/task")
+  public void createTask(@RequestBody Task task) {
+    taskService.createTask(task);
+  }
 
-    @GetMapping("/task")
-    public Task getTaskByIdQueryParam(@RequestParam long id) {
-        return taskService.getTaskById(id);
-    }
+  @GetMapping("/task/{id}")
+  public Task getTaskById(@PathVariable long id) {
+    return taskService.getTaskById(id);
+  }
 
-    @GetMapping("/tasks")
-    public List<Task> getTasks() { return taskService.getTasks();  }
+  @GetMapping("/tasks")
+  public List<Task> getTasks() {
+    return taskService.getTasks();
+  }
 
-    @DeleteMapping("/task/{id}")
-    public void deleteTaskById(@PathVariable long id) {
-        taskService.deleteTaskById(id);
-    }
+  @DeleteMapping("/task/{id}")
+  public void deleteTaskById(@PathVariable long id) {
+    taskService.deleteTaskById(id);
+  }
 }
