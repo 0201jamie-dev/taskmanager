@@ -12,6 +12,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+/**
+ * REST controller exposing user CRUD endpoints under {@code /api}.
+ *
+ * @author Jamie Michael Augustin
+ */
 @RestController
 @RequestMapping("/api")
 public class UserController {

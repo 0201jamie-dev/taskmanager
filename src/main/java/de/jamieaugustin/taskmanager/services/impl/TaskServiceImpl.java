@@ -8,6 +8,11 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * Default implementation of {@link TaskService}.
+ *
+ * @author Jamie Michael Augustin
+ */
 @Service
 public class TaskServiceImpl implements TaskService {
 

@@ -6,6 +6,11 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+/**
+ * REST controller exposing task CRUD endpoints under {@code /api}.
+ *
+ * @author Jamie Michael Augustin
+ */
 @RestController
 @RequestMapping("/api")
 public class TaskController {

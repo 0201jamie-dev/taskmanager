@@ -7,6 +7,11 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.Data;
 
+/**
+ * Represents a user entity persisted in the database.
+ *
+ * @author Jamie Michael Augustin
+ */
 @Entity
 @Data
 public class User {
